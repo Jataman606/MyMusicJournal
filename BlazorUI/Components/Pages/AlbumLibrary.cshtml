@@ -1,0 +1,16 @@
+@page "/library"
+@using Domain.Entities
+
+<div class="max-w-4xl mx-auto">
+    <h2 class="text-xl font-semibold mb-4">Your Library</h2>
+    <div class="grid grid-cols-3 gap-4">
+        @foreach (var album in library)
+        {
+            <AlbumCard Album="album" />
+        }
+    </div>
+</div>
+
+@code {
+    private List<Album> library = new();
+}

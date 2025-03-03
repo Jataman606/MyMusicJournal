@@ -1,0 +1,27 @@
+@page "/"
+@using Domain.Entities
+
+<div class="max-w-3xl mx-auto">
+    <h2 class="text-xl font-semibold mb-4">Search Albums</h2>
+    <input type="text" @bind="searchQuery" placeholder="Search for an album..." class="w-full p-2 bg-gray-800 rounded-lg"/>
+    <button class="mt-2 px-4 py-2 bg-blue-600 rounded-lg" @onclick="SearchAlbums">Search</button>
+
+    <div class="mt-4 grid grid-cols-1 gap-4">
+        @foreach (var album in searchResults)
+        {
+            <AlbumCard Album="album"/>
+        }
+    </div>
+</div>
+
+@code {
+    private string searchQuery = "";
+    private List<Album> searchResults = new();
+
+    private void SearchAlbums()
+    {
+        // Mock search logic
+        searchResults = new List<Album> {new Album {Name = "Test Album", Artist = "Test Artist", ImageUrl = "https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228"}};
+    }
+
+}
