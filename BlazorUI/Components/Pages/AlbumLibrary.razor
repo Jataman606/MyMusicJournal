@@ -6,11 +6,18 @@
     <div class="grid grid-cols-3 gap-4">
         @foreach (var album in library)
         {
-            <AlbumCard Album="album" />
+            <AlbumCardWithRating Album="album" />
         }
     </div>
 </div>
 
 @code {
-    private List<Album> library = new();
+
+    private List<Album> library = new()
+    {
+        new Album {Name = "Test Album1", Artist = "Test Artist", ImageUrl = "https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228"},
+        new Album {Name = "Test Album2", Artist = "Test Artist", ImageUrl = "https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228"},
+        new Album {Name = "Test Album3", Artist = "Test Artist", ImageUrl = "https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228"}
+    };
+
 }

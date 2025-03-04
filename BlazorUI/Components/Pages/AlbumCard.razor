@@ -1,11 +1,8 @@
 @using Domain.Entities
-<div class="p-4 bg-gray-800 rounded-lg shadow-md">
+<div class="w-40 p-4 bg-gray-800 rounded-lg shadow-md items-center">
     <h3 class="text-lg font-semibold">@Album.Name</h3>
     <p class="text-gray-400">@Album.Artist</p>
-    <div class="mt-2 flex items-center">
-        <span>Rating:</span>
-        <input type="number" min="1" max="10" class="ml-2 w-12 bg-gray-700 p-1 rounded" />
-    </div>
+    <img class="rounded" src="@Album.ImageUrl"/>
 </div>
 
 @code {
