@@ -1,9 +1,9 @@
 using Domain.Entities;
 using Domain.Types;
 
-namespace Domain.Interfaces;
+namespace Domain.AlbumAggregate;
 
-public interface IAlbumDao
+public interface IAlbumRepository
 {
     Task<List<Album>> GetAllAsync();
     Task AddAsync(Album album);

@@ -1,10 +1,11 @@
+using Domain.AlbumAggregate;
 using Domain.Entities;
 using Domain.Interfaces;
 using Domain.Types;
 
 namespace Infrastructure.Dao;
 
-public class AlbumDao : IAlbumDao
+public class AlbumRepository : IAlbumRepository
 {
     public Task<List<Album>> GetAllAsync()
     {

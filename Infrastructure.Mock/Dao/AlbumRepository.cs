@@ -1,3 +1,4 @@
+using Domain.AlbumAggregate;
 using Domain.Entities;
 using Domain.Enums;
 using Domain.Interfaces;
@@ -5,7 +6,7 @@ using Domain.Types;
 
 namespace Infrastructure.Mock.Dao;
 
-public class AlbumDao : IAlbumDao
+public class AlbumRepository : IAlbumRepository
 {
     static readonly List<Album> _albums = [];
     

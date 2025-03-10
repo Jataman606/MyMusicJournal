@@ -1,3 +1,4 @@
+using Domain.AlbumAggregate;
 using Domain.Interfaces;
 using Infrastructure.Mock.Dao;
 using Microsoft.Extensions.DependencyInjection;
@@ -8,6 +9,6 @@ public static class ServiceCollectionExtensions
 {
     public static void AddMockInfrastructure(this IServiceCollection services)
     {
-        services.AddTransient<IAlbumDao, AlbumDao>();
+        services.AddTransient<IAlbumRepository, AlbumRepository>();
     }
 }

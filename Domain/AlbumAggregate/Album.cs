@@ -12,4 +12,5 @@ public class Album
     public string ImageUrl { get; set; }
     public Genre Genre { get; set; }
     public Rating UserRating { get; set; }
+    public string Description { get; set; }
 }

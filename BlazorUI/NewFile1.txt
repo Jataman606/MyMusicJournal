@@ -1,0 +1,15 @@
+// entity
+Album (...)
+
+// use case
+Rate album(IAlbumRepo repo)
+    - repo.RateAlbum(rating)
+
+// Infra
+AlbumRepoImpl
+
+// Web
+Endpoint:
+    RateAlbumUseCase(rating)
+    
+    
