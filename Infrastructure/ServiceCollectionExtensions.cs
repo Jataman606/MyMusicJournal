@@ -1,6 +1,6 @@
 using Domain.AlbumAggregate;
 using Domain.Interfaces;
-using Infrastructure.Dao;
+using Infrastructure.Ef;
 using Infrastructure.Spotify;
 using Microsoft.Extensions.DependencyInjection;
 

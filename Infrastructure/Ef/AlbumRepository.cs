@@ -1,24 +1,32 @@
 using Domain.AlbumAggregate;
 using Domain.Entities;
-using Domain.Interfaces;
 using Domain.Types;
+using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure.Dao;
+namespace Infrastructure.Ef;
 
-public class AlbumRepository : IAlbumRepository
+public class AlbumRepository(MyMusicJournalDbContext dbContext) : IAlbumRepository
 {
-    public Task<List<Album>> GetAllAsync()
+    public async Task<List<Album>> GetAllAsync()
     {
-        throw new NotImplementedException();
+        return await dbContext.Albums.ToListAsync();
     }
 
-    public Task AddAsync(Album album)
+    public async Task AddAsync(Album album)
     {
-        throw new NotImplementedException();
+        dbContext.Albums.Add(album);
+        await dbContext.SaveChangesAsync();
     }
 
-    public Task RateAlbum(Guid albumId, Rating rating)
+    public async Task RateAlbum(Guid albumId, Rating rating)
     {
-        throw new NotImplementedException();
+        Album? album = await dbContext.Albums.FindAsync(albumId);
+        if (album == null)
+        {
+            throw new KeyNotFoundException($"Album with id {albumId} not found");
+        }
+        
+        album.UserRating = rating;
+        await dbContext.SaveChangesAsync();
     }
 }
