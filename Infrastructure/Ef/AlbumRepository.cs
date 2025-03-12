@@ -9,7 +9,13 @@ public class AlbumRepository(MyMusicJournalDbContext dbContext) : IAlbumReposito
 {
     public async Task<List<Album>> GetAllAsync()
     {
-        return await dbContext.Albums.ToListAsync();
+        // return await dbContext.Albums.ToListAsync();
+        return new()
+        {
+            new Album {Name = "Test Album1", Artist = "Test Artist", ImageUrl = "https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228"},
+            new Album {Name = "Test Album2", Artist = "Test Artist", ImageUrl = "https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228"},
+            new Album {Name = "Test Album3", Artist = "Test Artist", ImageUrl = "https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228"}
+        };
     }
 
     public async Task AddAsync(Album album)

@@ -1,5 +1,4 @@
 @page "/library"
-@using Domain.Entities
 
 <div class="max-w-4xl mx-auto">
     <h2 class="text-xl font-semibold mb-4">Your Library</h2>
@@ -10,14 +9,3 @@
         }
     </div>
 </div>
-
-@code {
-
-    private List<Album> library = new()
-    {
-        new Album {Name = "Test Album1", Artist = "Test Artist", ImageUrl = "https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228"},
-        new Album {Name = "Test Album2", Artist = "Test Artist", ImageUrl = "https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228"},
-        new Album {Name = "Test Album3", Artist = "Test Artist", ImageUrl = "https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228"}
-    };
-
-}

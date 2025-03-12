@@ -4,7 +4,7 @@ namespace Domain.AlbumAggregate.UseCases;
 
 public class GetSavedAlbums(IAlbumRepository repository)
 {
-    public async Task<IEnumerable<Album>> Execute()
+    public async Task<List<Album>> ExecuteAsync()
     {
         return await repository.GetAllAsync();
     }

@@ -1,5 +1,6 @@
 using BlazorUI.Components;
-using Infrastructure.Mock;
+using Domain;
+using Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,7 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-builder.Services.AddMockInfrastructure();
+builder.Services.AddInfrastructure();
+builder.Services.AddDomainUseCases();
 
 var app = builder.Build();
 
