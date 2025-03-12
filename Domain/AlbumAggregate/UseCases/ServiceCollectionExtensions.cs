@@ -7,5 +7,6 @@ public static class ServiceCollectionExtensions
     public static void AddAlbumAggregateUseCases(this IServiceCollection services)
     {
         services.AddTransient<GetSavedAlbums>();
+        services.AddTransient<RateAlbum>();
     }
 }
