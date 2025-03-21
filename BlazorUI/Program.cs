@@ -1,8 +1,11 @@
-using BlazorUI.Components;
 using Domain;
 using Infrastructure;
+using ElectronNET.API;
+using App = BlazorUI.Components.App;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.WebHost.UseElectron(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
@@ -30,4 +33,7 @@ app.MapStaticAssets();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 
-app.Run();
+await app.StartAsync();
+await Electron.WindowManager.CreateWindowAsync();
+app.WaitForShutdown();
+
