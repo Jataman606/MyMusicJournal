@@ -1,4 +1,5 @@
-using Domain.AlbumAggregate;
+using Application.Contracts.Repositories;
+using Infrastructure.Ef.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Infrastructure.Ef;

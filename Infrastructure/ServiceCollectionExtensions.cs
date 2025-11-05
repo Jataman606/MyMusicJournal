@@ -1,5 +1,3 @@
-using Domain.AlbumAggregate;
-using Domain.Interfaces;
 using Infrastructure.Ef;
 using Infrastructure.Spotify;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,6 +9,6 @@ public static class ServiceCollectionExtensions
     public static void AddInfrastructure(this IServiceCollection services)
     {
         services.AddEfInfrastructure();
-        services.AddTransient<IAlbumSearchService, SpotifyIntegration>();
+        services.AddSpotifyIntegration();
     }
 }

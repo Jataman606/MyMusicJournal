@@ -1,7 +1,7 @@
 using Domain.Entities;
 using Domain.Types;
 
-namespace Domain.AlbumAggregate;
+namespace Application.Contracts.Repositories;
 
 public interface IAlbumRepository
 {

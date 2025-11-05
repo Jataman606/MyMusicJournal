@@ -1,9 +1,8 @@
-using Domain.AlbumAggregate;
+using Application.Contracts.Repositories;
 using Domain.Entities;
 using Domain.Types;
-using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure.Ef;
+namespace Infrastructure.Ef.Repositories;
 
 public class AlbumRepository(MyMusicJournalDbContext dbContext) : IAlbumRepository
 {

@@ -1,4 +1,4 @@
-using Domain.AlbumAggregate.UseCases;
+using Application.Services;
 using Domain.Entities;
 using Microsoft.AspNetCore.Components;
 
@@ -7,7 +7,7 @@ namespace BlazorUI.Components.Pages;
 public partial class AlbumLibrary
 {
     [Inject]
-    public GetSavedAlbums GetSavedAlbums { get; set; }= default!;
+    public AlbumsService AlbumsService { get; set; }= default!;
 
     private List<Album> library = new();
 
@@ -15,6 +15,6 @@ public partial class AlbumLibrary
     { 
         await base.OnInitializedAsync();
 
-        library = await GetSavedAlbums.ExecuteAsync();
+        library = await AlbumsService.GetSavedAlbumsAsync();
     }
 }
