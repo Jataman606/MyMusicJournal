@@ -1,18 +1,22 @@
-using Domain;
+// #define USE_ELECTRON
+
+using BlazorUI;
 using Infrastructure;
 using ElectronNET.API;
 using App = BlazorUI.Components.App;
 
 var builder = WebApplication.CreateBuilder(args);
 
+#if USE_ELECTRON
 builder.WebHost.UseElectron(args);
+#endif
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 builder.Services.AddInfrastructure();
-builder.Services.AddDomainUseCases();
+builder.Services.AddServices();
 
 var app = builder.Build();
 
@@ -33,7 +37,9 @@ app.MapStaticAssets();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 
+#if USE_ELECTRON
 await app.StartAsync();
 await Electron.WindowManager.CreateWindowAsync();
 app.WaitForShutdown();
+#endif
 
